@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x16fcb86b435aa1c3c08670bbdcbfd0c3ccb48fd511b3a7ea4d3f883ac63c4b85");
+uint256 hashGenesisBlock("0xcaf35b92fb632a1b499358567e87eb4abe262c822a3b98aa1a3eb75d1a19e1aa");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Uwezocoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2757,7 +2757,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xf7;
         pchMessageStart[2] = 0xa5;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x16fcb86b435aa1c3c08670bbdcbfd0c3ccb48fd511b3a7ea4d3f883ac63c4b85");
+        hashGenesisBlock = uint256("0xcaf35b92fb632a1b499358567e87eb4abe262c822a3b98aa1a3eb75d1a19e1aa");
     }
 
     //
@@ -2790,7 +2790,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "20/June/2017 Google faces over €1bn fine from Brussels over abuse of market dominance ";
+        const char* pszTimestamp = "25/SEP/2017 Bitcoin Trades Sideways As Investors Look To China";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2802,14 +2802,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1498501829;
+        block.nTime    = 1506325105;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 95734;
+        block.nNonce   = 53757;
 
         if (fTestNet)
         {
-            block.nTime    = 1498501829;
-            block.nNonce   = 95734;
+            block.nTime    = 1506325105;
+            block.nNonce   = 53757;
         }
 
         //// debug print
@@ -2817,7 +2817,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x3432eeb470115f92a071873f78834bde098fe9a0ce3f51325caa676ff8598833"));
+        assert(block.hashMerkleRoot == uint256("0x7151500e4420decf0a666830f50ba7c7102eab28f1650605d0c6fe27d0104b09"));
         if (true && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
@@ -3120,7 +3120,7 @@ bool static AlreadyHave(const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xc3, 0xd2, 0xd1, 0xbd }; // Uwezocoin: increase each by adding 2 to bitcoin's value.
+unsigned char pchMessageStart[4] = { 0xc3, 0xd2, 0xd1, 0xb2 }; // Uwezocoin: increase each by adding 2 to bitcoin's value.
 
 
 void static ProcessGetData(CNode* pfrom)
