@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xcaf35b92fb632a1b499358567e87eb4abe262c822a3b98aa1a3eb75d1a19e1aa");
+uint256 hashGenesisBlock("0x78895ce2ded783ef6c5b9cdf1d78f6753e8ee2ef30c7c922869317627e44817b");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Uwezocoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1087,21 +1087,14 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 500 * COIN;
+    int64 nSubsidy = 30 * COIN;
     if(nHeight == 2)  
     {
-        nSubsidy = 600000000 * COIN;
-    }
-    else if(nHeight < 5000)  
-    {
-        nSubsidy = 5000 * COIN;
-    }
-    else if(nHeight < 10000)  
-    {
-        nSubsidy = 2500 * COIN;
+        nSubsidy = 700000000 * COIN;
+   
     }
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 840000); // Uwezocoin: 840k blocks in ~4 years
+    nSubsidy >>= (nHeight / 2102400); // Uwezocoin: 840k blocks in ~4 years
 
     return nSubsidy + nFees;
 }
@@ -2753,11 +2746,11 @@ bool LoadBlockIndex()
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xc1;
-        pchMessageStart[1] = 0xf7;
-        pchMessageStart[2] = 0xa5;
+        pchMessageStart[0] = 0xc3;
+        pchMessageStart[1] = 0xb6;
+        pchMessageStart[2] = 0xa4;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0xcaf35b92fb632a1b499358567e87eb4abe262c822a3b98aa1a3eb75d1a19e1aa");
+        hashGenesisBlock = uint256("0x78895ce2ded783ef6c5b9cdf1d78f6753e8ee2ef30c7c922869317627e44817b");
     }
 
     //
@@ -2790,7 +2783,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "25/SEP/2017 Bitcoin Trades Sideways As Investors Look To China";
+        const char* pszTimestamp = "02/Mar/2018 Iran bans use of US dollar in trade";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2802,14 +2795,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1506325105;
+        block.nTime    = 1519980611;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 53757;
+        block.nNonce   = 934342;
 
         if (fTestNet)
         {
-            block.nTime    = 1506325105;
-            block.nNonce   = 53757;
+            block.nTime    = 1519980611;
+            block.nNonce   = 934342;
         }
 
         //// debug print
@@ -2817,7 +2810,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x7151500e4420decf0a666830f50ba7c7102eab28f1650605d0c6fe27d0104b09"));
+        assert(block.hashMerkleRoot == uint256("0xca6277284ab98032bdd63c50f4f150e5346d832a84f81c8e632a779fbd371894"));
         if (true && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
@@ -3120,7 +3113,7 @@ bool static AlreadyHave(const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xc3, 0xd2, 0xd1, 0xb2 }; // Uwezocoin: increase each by adding 2 to bitcoin's value.
+unsigned char pchMessageStart[4] = { 0xc3, 0xb6, 0xa4, 0xdc }; // Uwezocoin: increase each by adding 2 to bitcoin's value.
 
 
 void static ProcessGetData(CNode* pfrom)
