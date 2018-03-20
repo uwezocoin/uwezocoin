@@ -1,7 +1,7 @@
 Uwezocoin integration/staging tree
 ================================
 
-http://www.uwezocoin.org
+http://www.uwezocoin.com
 
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2011-2014 Litecoin Developers
