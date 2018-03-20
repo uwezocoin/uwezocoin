@@ -3,24 +3,22 @@ Uwezocoin integration/staging tree
 
 http://www.uwezocoin.org
 
-Copyright (c) 2009-2017 Bitcoin Developers
-Copyright (c) 2011-2017 Litecoin Developers
+Copyright (c) 2009-2013 Bitcoin Developers
+Copyright (c) 2011-2014 Litecoin Developers
 Copyright (c) 2014-2017 Uwezocoin Developers
 
 What is Uwezocoin?
 ----------------
 
 Uwezocoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
- - 30 second block targets
- - subsidy halves in 840k blocks (~4 years)
+ - 60 second block targets
+ - subsidy halves in 2102400 blocks (~4 years)
  - ~840 million total coins
-
-The rest is the same as Bitcoin.
- - 500 coins per block
+ - 30 coins Per block
  - 10 blocks to retarget difficulty
 
 For more information, as well as an immediately useable, binary version of
-the Uwezocoin client sofware, see http://www.uwezocoin.org.
+the Uwezocoin client sofware, see http://www.uwezocoin.com.
 
 License
 -------
@@ -68,7 +66,7 @@ Unit tests for the core code are in `src/test/`. To compile and run them:
 
 Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
 
-    qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
+    qmake BITCOIN_QT_TEST=1 -o Makefile.test uwezocoin-qt.pro
     make -f Makefile.test
     ./uwezocoin-qt_test
 
